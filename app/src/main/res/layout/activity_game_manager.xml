@@ -1,0 +1,435 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/trivia_LAY_heartLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/IMG_heart1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_heart"/>
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/IMG_heart2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_heart"/>
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/IMG_heart3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_heart"/>
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="0dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/IMG_heart4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_heart"/>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <!-- Column 0 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_00"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <!-- Repeat for each row -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_30"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_40"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_50"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_60"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_70"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_80"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fish_90"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_fish"
+                    android:visibility="invisible"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- Column 1 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <!-- Repeat for each row -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_21"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_31"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_41"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_51"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_61"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_71"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_81"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fish_91"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_fish"
+                    android:visibility="visible"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- Column 2 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <!-- Repeat for each row -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_22"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_32"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_42"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_52"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_62"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_72"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/jellyfish_82"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_jellyfish"
+                    android:visibility="invisible"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fish_92"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_fish"
+                    android:visibility="invisible"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout
+            android:id="@+id/controls_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btn_left"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/ic_left" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btn_right"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/ic_right" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
