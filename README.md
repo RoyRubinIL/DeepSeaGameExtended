@@ -28,7 +28,7 @@ Deep Sea Game is an exciting underwater adventure where players guide a fish thr
 - The game ends when all three lives are lost.
 - Visual feedback is provided for lives remaining and collisions.
 
-## Video
+## Video demo
 
-Check out the gameplay video [here](https://drive.google.com/file/d/10y4ONk8eZoHBLJUunhoD9xW7-IS0mYZg/view?usp=sharing).
+Check out the gameplay video [here]().
 
