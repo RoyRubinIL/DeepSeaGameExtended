@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int NUM_ROWS = 10;
     private static final String TAG = "MainActivity";
     private static final int DELAY_MILLIS = 1000; // Variable for delay duration
+    private static final int MAX_LIVES = 4;
 
     private GameManager gameManager;
     private ImageView[][] jellyfishViews;
@@ -184,10 +185,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateLivesUI() {
-        findViewById(R.id.IMG_heart1).setVisibility(gameManager.getLives() > 0 ? View.VISIBLE : View.GONE);
-        findViewById(R.id.IMG_heart2).setVisibility(gameManager.getLives() > 1 ? View.VISIBLE : View.GONE);
-        findViewById(R.id.IMG_heart3).setVisibility(gameManager.getLives() > 2 ? View.VISIBLE : View.GONE);
-        findViewById(R.id.IMG_heart4).setVisibility(gameManager.getLives() > 3 ? View.VISIBLE : View.GONE);
+        for (int i = 1; i <= MAX_LIVES; i++) {
+            int resId = getResources().getIdentifier("IMG_heart" + i, "id", getPackageName());
+            findViewById(resId).setVisibility(gameManager.getLives() >= i ? View.VISIBLE : View.GONE);
+        }
     }
 
     private void resetGame() {
