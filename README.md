@@ -30,5 +30,9 @@ Deep Sea Game is an exciting underwater adventure where players guide a fish thr
 
 ## Video demo
 
-Check out the gameplay video [here]().
+Check out the gameplay video:
+
+https://github.com/RoyRubinIL/DeepSeaGame/assets/114292185/ee61b213-eac1-4495-b920-3e2db1c540ec
+
+
 
