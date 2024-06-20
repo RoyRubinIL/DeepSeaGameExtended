@@ -16,7 +16,7 @@ Deep Sea Game is an exciting underwater adventure where players guide a fish thr
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/deep-sea-game.git
+   git clone https://github.com/RoyRubinIL/DeepSeaGame.git
    ```
 2. Open the project in Android Studio.
 3. Build and run the project on an Android device or emulator.
