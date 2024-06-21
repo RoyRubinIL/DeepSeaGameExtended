@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layoutDirection="locale">
 
     <!-- Background image -->
     <androidx.appcompat.widget.AppCompatImageView
@@ -20,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layoutDirection="locale">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/LAY_heartLayout"
@@ -76,7 +78,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layoutDirection="locale">
 
             <!-- Column 0 -->
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -147,7 +150,7 @@
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter"
-                   />
+                    />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/jellyfish_70"
@@ -391,20 +394,21 @@
             android:gravity="center_horizontal">
 
             <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_left"
-            style="@style/Widget.Material3.Button.Icon"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="25dp"
-            android:layout_marginBottom="25dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:backgroundTint="#E91E63"
-            app:icon="@drawable/ic_left"
-            app:iconGravity="textEnd"
-            app:iconSize="40dp"
-            />
+                android:id="@+id/btn_left"
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:backgroundTint="#E91E63"
+                app:icon="@drawable/ic_left"
+                app:iconGravity="textEnd"
+                app:iconSize="40dp"
+                />
 
             <View
                 android:layout_width="0dp"
@@ -416,8 +420,9 @@
                 style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginBottom="25dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
