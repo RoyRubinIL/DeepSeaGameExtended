@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".MainActivity"
+    tools:context=".Views.MainActivity"
     android:layoutDirection="locale">
 
     <!-- Background image -->
@@ -28,7 +28,7 @@
             android:id="@+id/LAY_heartLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="left"
             android:orientation="horizontal"
             android:layout_marginTop="16dp">
 
@@ -89,7 +89,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_00"
+                    android:id="@+id/object_00"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -99,7 +99,7 @@
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_10"
+                    android:id="@+id/object_10"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -108,7 +108,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_20"
+                    android:id="@+id/object_20"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -117,7 +117,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_30"
+                    android:id="@+id/object_30"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -126,7 +126,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_40"
+                    android:id="@+id/object_40"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -135,7 +135,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_50"
+                    android:id="@+id/object_50"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -144,7 +144,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_60"
+                    android:id="@+id/object_60"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -153,7 +153,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_70"
+                    android:id="@+id/object_70"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -162,7 +162,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_80"
+                    android:id="@+id/object_80"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -190,7 +190,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_01"
+                    android:id="@+id/object_01"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -200,7 +200,7 @@
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_11"
+                    android:id="@+id/object_11"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -209,7 +209,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_21"
+                    android:id="@+id/object_21"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -218,7 +218,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_31"
+                    android:id="@+id/object_31"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -227,7 +227,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_41"
+                    android:id="@+id/object_41"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -236,7 +236,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_51"
+                    android:id="@+id/object_51"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -245,7 +245,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_61"
+                    android:id="@+id/object_61"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -254,7 +254,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_71"
+                    android:id="@+id/object_71"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -263,7 +263,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_81"
+                    android:id="@+id/object_81"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -291,7 +291,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_02"
+                    android:id="@+id/object_02"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -301,7 +301,7 @@
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_12"
+                    android:id="@+id/object_12"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -310,7 +310,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_22"
+                    android:id="@+id/object_22"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -319,7 +319,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_32"
+                    android:id="@+id/object_32"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -328,7 +328,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_42"
+                    android:id="@+id/object_42"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -337,7 +337,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_52"
+                    android:id="@+id/object_52"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -346,7 +346,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_62"
+                    android:id="@+id/object_62"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -355,7 +355,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_72"
+                    android:id="@+id/object_72"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -364,7 +364,7 @@
                     />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/jellyfish_82"
+                    android:id="@+id/object_82"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -374,6 +374,206 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/fish_92"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_fish"
+                    android:visibility="visible"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- Column 3 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <!-- Repeat for each row -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_13"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_23"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_33"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_43"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_53"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_63"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_73"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_83"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fish_93"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_fish"
+                    android:visibility="invisible"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- Column 4 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <!-- Repeat for each row -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_34"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_44"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_54"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_64"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_74"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/object_84"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fish_94"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
