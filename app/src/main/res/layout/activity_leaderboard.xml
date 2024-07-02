@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Views.LeaderboardActivity">
@@ -16,7 +15,14 @@
         android:scaleType="centerCrop"
         android:src="@drawable/img_startbackground" />
 
-    <!-- Logo Image at the Top -->
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/return_button"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_return_button" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_logo"
         android:layout_width="wrap_content"
@@ -25,33 +31,35 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/img_logo_leaderboard" />
 
+
+    <!-- Fragments Container -->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/fragments"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="48dp">
 
-<!--        <fragment-->
-<!--            android:id="@+id/id_map"-->
-<!--            android:name="com.google.android.gms.maps.SupportMapFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            >-->
-
-<!--        </fragment>-->
-
-        <fragment
-            android:id="@+id/id_map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
+        <!-- Board List Fragment -->
+        <FrameLayout
+            android:id="@+id/board_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="8dp" />
 
-        </fragment>
-
+        <!-- Board Map Fragment -->
+        <FrameLayout
+            android:id="@+id/board_map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="10dp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

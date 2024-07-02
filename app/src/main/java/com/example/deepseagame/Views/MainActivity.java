@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         if (gameManager.getLives() <= 0) {
             Toast.makeText(this, "You lose! Start Over", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "No lives left. Resetting game.");
-            resetGame();
+//            resetGame();
         }
     }
 
