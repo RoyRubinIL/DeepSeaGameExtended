@@ -15,22 +15,27 @@
         android:scaleType="centerCrop"
         android:src="@drawable/img_startbackground" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/return_button"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/img_return_button" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_logo"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/img_logo_leaderboard" />
+        android:orientation="horizontal">
 
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/return_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_return_button" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_logo_leaderboard" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <!-- Fragments Container -->
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -39,9 +44,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_below="@id/title"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="48dp">
+        android:layout_below="@id/title">
+
+        <!-- Empty State TextView -->
+        <TextView
+            android:id="@+id/empty_state_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No players available"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textSize="18sp"
+            android:padding="16dp" />
 
         <!-- Board List Fragment -->
         <FrameLayout

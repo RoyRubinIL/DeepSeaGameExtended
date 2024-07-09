@@ -116,4 +116,14 @@ public class GameManager {
     public int getLives() {
         return lives;
     }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+
 }

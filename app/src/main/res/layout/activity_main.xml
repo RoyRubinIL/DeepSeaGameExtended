@@ -20,66 +20,96 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layoutDirection="locale"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:layoutDirection="locale">
+        android:padding="16dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/LAY_heartLayout"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/IMG_heart1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_heart"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/LAY_heartLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/IMG_heart1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_heart" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/IMG_heart2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_heart" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/IMG_heart3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_heart" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/IMG_heart4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_heart" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
-                android:layout_width="8dp"
-                android:layout_height="0dp"/>
+                android:layout_width="116dp"
+                android:layout_height="0dp" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/IMG_heart2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_heart"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
 
-            <View
-                android:layout_width="8dp"
-                android:layout_height="0dp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/main_score_lbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:text="000"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+            </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/IMG_heart3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_heart"/>
-
-            <View
-                android:layout_width="8dp"
-                android:layout_height="0dp"/>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/IMG_heart4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_heart"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
+        </LinearLayout>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layoutDirection="locale">
+            android:layout_weight="1"
+            android:layoutDirection="locale"
+            android:orientation="horizontal">
+
+
 
             <!-- Column 0 -->
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -92,94 +122,84 @@
                     android:id="@+id/object_00"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_10"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_20"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_30"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_40"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_50"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_60"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_70"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_80"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/fish_90"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_fish"
-                    android:visibility="invisible"
-                    />
+                    android:src="@drawable/img_nemo"
+                    android:visibility="invisible" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <!-- Column 1 -->
@@ -193,94 +213,84 @@
                     android:id="@+id/object_01"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_11"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_21"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_31"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_41"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_51"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_61"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_71"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_81"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/fish_91"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_fish"
-                    android:visibility="invisible"
-                    />
+                    android:src="@drawable/img_nemo"
+                    android:visibility="invisible" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <!-- Column 2 -->
@@ -294,93 +304,84 @@
                     android:id="@+id/object_02"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_12"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_22"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_32"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_42"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_52"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_62"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_72"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_82"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/fish_92"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_fish"
-                    android:visibility="visible"/>
+                    android:src="@drawable/img_nemo"
+                    android:visibility="visible" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <!-- Column 3 -->
@@ -394,93 +395,84 @@
                     android:id="@+id/object_03"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_13"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_23"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_33"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_43"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_53"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_63"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_73"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_83"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/fish_93"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_fish"
-                    android:visibility="invisible"/>
+                    android:src="@drawable/img_nemo"
+                    android:visibility="invisible" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <!-- Column 4 -->
@@ -494,93 +486,84 @@
                     android:id="@+id/object_04"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <!-- Repeat for each row -->
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_14"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_24"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_34"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_44"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_54"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_64"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_74"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/object_84"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    />
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/fish_94"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_fish"
-                    android:visibility="invisible"/>
+                    android:src="@drawable/img_nemo"
+                    android:visibility="invisible" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -588,10 +571,10 @@
             android:id="@+id/controls_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:paddingTop="16dp"
-            android:paddingBottom="20dp"
-            android:gravity="center_horizontal">
+            android:paddingBottom="20dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_left"
@@ -602,18 +585,17 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="25dp"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#E91E63"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:backgroundTint="#E91E63"
                 app:icon="@drawable/ic_left"
                 app:iconGravity="textEnd"
-                app:iconSize="40dp"
-                />
+                app:iconSize="40dp" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_right"
@@ -624,12 +606,95 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="25dp"
                 android:layout_marginBottom="25dp"
+                android:backgroundTint="#E91E63"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:backgroundTint="#E91E63"
                 app:icon="@drawable/ic_right"
                 app:iconGravity="textEnd"
                 app:iconSize="40dp" />
         </LinearLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <!--    CardView: Gameover-final Score-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_gameover"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="50dp"
+        android:padding="10dp"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="10dp"
+        android:visibility="visible">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/img_ocean_bg"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:src="@drawable/img_gameover"
+                android:layout_gravity="center_horizontal">
+
+
+            </com.google.android.material.imageview.ShapeableImageView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/main_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="Final Score:"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/main_player_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="Enter Your Name"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/main_submit"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:textSize="16sp"
+                android:textColor="@color/green"
+                android:backgroundTint="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:text="SUBMIT"
+                app:cornerRadius="10dp"
+                >
+
+            </com.google.android.material.button.MaterialButton>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

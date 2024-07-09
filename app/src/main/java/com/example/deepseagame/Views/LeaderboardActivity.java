@@ -11,55 +11,73 @@ import com.example.deepseagame.Fragments.LeaderboardFragment;
 import com.example.deepseagame.Fragments.MapFragment;
 import com.example.deepseagame.Models.Player;
 import com.example.deepseagame.R;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.material.textview.MaterialTextView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.Collections;
+import java.util.List;
 
 public class LeaderboardActivity extends AppCompatActivity {
 
-    //private MaterialTextView score_LBL_text;
+    private static final String EXTRA_FROM_MAIN_ACTIVITY = "fromMainActivity";
+
     private FrameLayout board_list;
     private FrameLayout board_map;
     private MapFragment mapFragment;
-    private LeaderboardFragment listFragment;
+    private LeaderboardFragment leaderboardFragment;
     private ImageButton return_button;
-    public final double DEFAULT_LAT = 31.771959;
-    public final double DEFAULT_LON = 35.217018;
-    private Player currentPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_leaderboard);
+        setContentView(R.layout.activity_leaderboard); // Make sure this layout contains the return_button
         findViews();
-        mapFragment = new MapFragment();
-        listFragment = new LeaderboardFragment();
-        getIntents();
-//        listFragment.updateData(currentPlayer);
-//        listFragment.save();
-//        listFragment.getAdapter().setPlayerCallback((player, position) -> mapFragment.focusOnLocation(new LatLng(player.getLat(), player.getLon())));
-//        getSupportFragmentManager().beginTransaction().add(R.id.SCORE_FL_list, listFragment).commit();
-//        getSupportFragmentManager().beginTransaction().add(R.id.SCORE_FL_map, mapFragment).commit();
-        return_button.setOnClickListener((view) -> {
-            returnToStartActivity();
-        });;
+        setupFragments();
+
+        setupReturnButton();
     }
 
-    private void getIntents() {
-//        int currentScore = getIntent().getIntExtra("score", 0);
-//        double lat = getIntent().getDoubleExtra("lat", DEFAULT_LAT);
-//        double lon = getIntent().getDoubleExtra("lon", DEFAULT_LON);
-//      currentPlayer = new Player().setScore(currentScore).setLat(lat).setLon(lon);
+    private void setupFragments() {
+        leaderboardFragment = new LeaderboardFragment();
+        leaderboardFragment.setCallBackConnectLocationToPlayer((lat, lon) -> mapFragment.moveToLocation(lat, lon));
+
+        mapFragment = new MapFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.board_list, leaderboardFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.board_map, mapFragment).commit();
+
+        // Ensure fragments are committed before attempting to set player list
+        getSupportFragmentManager().executePendingTransactions();
+
+        boolean fromMainActivity = getIntent().getBooleanExtra(EXTRA_FROM_MAIN_ACTIVITY, false);
+        List<Player> playerList = getPlayerListData();
+        if (playerList != null && !playerList.isEmpty()) {
+            leaderboardFragment.setPlayerList(playerList);
+        }
+    }
+
+    private List<Player> getPlayerListData() {
+        String playerListJson = getIntent().getStringExtra("playerListJson");
+        if (playerListJson == null || playerListJson.isEmpty()) {
+            return Collections.emptyList();
+        }
+        List<Player> playerList = new Gson().fromJson(playerListJson, new TypeToken<List<Player>>(){}.getType());
+        return playerList;
     }
 
     private void findViews() {
         board_list = findViewById(R.id.board_list);
         board_map = findViewById(R.id.board_map);
-        return_button = findViewById(R.id.return_button);
+        return_button = findViewById(R.id.return_button); // Ensure this ID matches the one in your layout file
     }
 
-    private void returnToStartActivity(){
-        Intent intent = new Intent(this, StartActivity.class);
-        startActivity(intent);
+    private void setupReturnButton() {
+        if (return_button != null) {
+            return_button.setOnClickListener(v -> returnToStartActivity());
+        }
+    }
+
+    private void returnToStartActivity() {
+        startActivity(new Intent(this, StartActivity.class));
         finish();
     }
 }

@@ -5,10 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.LeaderboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/empty_state_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No players available"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="18sp"
+        android:padding="40dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_LST_scores"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_centerInParent="true"
+        tools:listitem="@layout/horizontal_score" />
 
 </FrameLayout>

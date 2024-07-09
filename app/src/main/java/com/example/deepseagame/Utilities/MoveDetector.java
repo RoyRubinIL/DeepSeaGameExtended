@@ -12,11 +12,8 @@ public class MoveDetector {
     private SensorManager sensorManager;
     private Sensor sensor;
     private SensorEventListener sensorEventListener;
-
-    private int moveCountX = 0;
-    private int moveCountY = 0;
-    private long timestamp = 0l;
-
+    private long timeStamp = 0l;
+    private final double ACCELERATION = 2.0;
     private MoveCallback moveCallback;
 
     public MoveDetector(Context context, MoveCallback moveCallback) {
@@ -26,13 +23,6 @@ public class MoveDetector {
         initEventListener();
     }
 
-    public int getMoveCountX() {
-        return moveCountX;
-    }
-
-    public int getMoveCountY() {
-        return moveCountY;
-    }
 
     private void initEventListener() {
         this.sensorEventListener = new SensorEventListener() {
@@ -51,20 +41,21 @@ public class MoveDetector {
     }
 
     private void calculateMove(float x, float y) {
-        if (System.currentTimeMillis() - timestamp > 500){
-            timestamp = System.currentTimeMillis();
-            if (x > 6.0 || x < -6.0){
-                moveCountX++;
-                if (moveCallback != null){
-//                    moveCallback.moveX();
-                }
+        String dirX;
+        String speedY;
+        dirX = (x > 0) ? "Left" : (x < 0) ? "Right" : "";
+        speedY = (y > 0) ? "Slow" : (y < 0) ? "Fast" : "";
+
+        if (System.currentTimeMillis() - timeStamp > 500) {
+            timeStamp = System.currentTimeMillis();
+            if (x > ACCELERATION || x < -ACCELERATION) {
+                if (moveCallback != null)
+                    moveCallback.moveX(dirX);
             }
-//            if (y > 6.0 || y < -6.0){
-//                moveCountY++;
-//                if (moveCallback != null){
-//                    moveCallback.moveY();
-//                }
-//            }
+            if (y > ACCELERATION || y < -ACCELERATION) {
+                if (moveCallback != null)
+                    moveCallback.moveY(speedY);
+            }
         }
     }
 

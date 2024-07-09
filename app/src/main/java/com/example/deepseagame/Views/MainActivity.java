@@ -1,6 +1,7 @@
 package com.example.deepseagame.Views;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -10,12 +11,19 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.cardview.widget.CardView;
 
 import com.example.deepseagame.Interfaces.MoveCallback;
 import com.example.deepseagame.Logic.GameManager;
+import com.example.deepseagame.Models.Player;
 import com.example.deepseagame.R;
+import com.example.deepseagame.Utilities.DataManager;
 import com.example.deepseagame.Utilities.MoveDetector;
+import com.example.deepseagame.Utilities.MyLocationManager;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textview.MaterialTextView;
+import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,38 +39,22 @@ public class MainActivity extends AppCompatActivity {
     private final Handler gameHandler = new Handler();
     private MaterialButton btnLeft;
     private MaterialButton btnRight;
+    private MaterialButton main_submit;
     private boolean shouldGenerateGameObject = true;
     private String speedMode;
     private boolean sensorMode;
     private MoveDetector movementDetector;
-
-    private final Runnable gameRunnable = new Runnable() {
-        @Override
-        public void run() {
-            try {
-                if (gameManager.checkCollision()) {
-                    Log.d(TAG, "Collision detected!");
-                    onCollision();
-                }
-                gameManager.updateGameMatrix();
-                updateUI();
-                if (shouldGenerateGameObject) {
-                    gameManager.generateGameObjects();
-                }
-                shouldGenerateGameObject = !shouldGenerateGameObject;
-            } catch (Exception e) {
-                Log.e(TAG, "Error in game loop", e);
-            }
-            int delay = speedMode.equals("slow") ? DELAY_MILLIS_SLOW : DELAY_MILLIS_FAST;
-            gameHandler.postDelayed(this, delay);
-        }
-    };
+    private MyLocationManager myLocationManager;
+    private CardView cardview_gameover;
+    private MaterialTextView score;
+    private MaterialTextView score_lbl;
+    private AppCompatEditText main_player_name;
+    private boolean isGameOver = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         speedMode = getIntent().getStringExtra("speed_mode");
         sensorMode = getIntent().getBooleanExtra("sensor_mode", false);
 
@@ -71,14 +63,22 @@ public class MainActivity extends AppCompatActivity {
         fishViews = new ImageView[gameManager.getNumLanes()];
 
         initializeViews();
+        showEndGameCard(false);
         initializeButtons();
         updateLivesUI();
         enableMovement();
+
+        // Initialize MyLocationManager and get user location
+        myLocationManager = new MyLocationManager(this);
+        myLocationManager.askLocationPermissions(this);
+        myLocationManager.findUserLocation(); // Ensure location is being fetched
     }
 
     private void initializeButtons() {
         btnLeft = findViewById(R.id.btn_left);
         btnRight = findViewById(R.id.btn_right);
+        main_submit = findViewById(R.id.main_submit);
+        main_submit.setOnClickListener(v -> startLeaderboardActivity());
 
         if (sensorMode) {
             btnLeft.setVisibility(View.GONE);
@@ -88,19 +88,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void enableMovement() {
         if (!sensorMode) {
+            btnLeft.setVisibility(View.VISIBLE);
+            btnRight.setVisibility(View.VISIBLE);
             btnLeft.setOnClickListener(v -> moveFish(LEFT));
             btnRight.setOnClickListener(v -> moveFish(RIGHT));
         } else {
+            btnLeft.setVisibility(View.GONE);
+            btnRight.setVisibility(View.GONE);
             movementDetector = new MoveDetector(this, new MoveCallback() {
                 @Override
-                public void moveX(String directionX) {
-                    if (directionX.equals("Right")) {
+                public void moveX(String dirX) {
+                    if (dirX.equals("Right")) {
                         moveFish(RIGHT);
                     } else {
                         moveFish(LEFT);
                     }
                 }
+
+                @Override
+                public void moveY(String dirY) {
+                    // No vertical movement in this game
+                }
             });
+            movementDetector.start();
         }
     }
 
@@ -119,6 +129,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: Game stopping");
+        if (sensorMode)
+            movementDetector.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: Game resuming");
+        if (sensorMode && movementDetector != null) {
+            movementDetector.start();
+        }
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop: Game stopping");
@@ -126,6 +153,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
+        score = findViewById(R.id.main_score);
+        score_lbl = findViewById(R.id.main_score_lbl);
+        main_player_name = findViewById(R.id.main_player_name);
+        cardview_gameover = findViewById(R.id.cardview_gameover);
+
         for (int i = 0; i < gameManager.getNumRows() - 1; i++) {
             for (int j = 0; j < gameManager.getNumLanes(); j++) {
                 String jellyfishId = "object_" + i + j;
@@ -136,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
         for (int i = 0; i < gameManager.getNumLanes(); i++) {
             String fishId = "fish_9" + i;
             @SuppressLint("DiscouragedApi") int resId = getResources().getIdentifier(fishId, "id", getPackageName());
@@ -150,6 +183,34 @@ public class MainActivity extends AppCompatActivity {
         gameHandler.removeCallbacks(gameRunnable);
         gameHandler.post(gameRunnable);
     }
+
+    private final Runnable gameRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if(isGameOver)
+                return;
+            try {
+                if (gameManager.checkCollision()) {
+                    Log.d(TAG, "Collision detected!");
+                    onCollision();
+                }
+                if (gameManager.checkWormCollision()) {
+                    gameManager.setScore(gameManager.getScore() + 10);
+                    score_lbl.setText(String.valueOf(gameManager.getScore()));
+                }
+                gameManager.updateGameMatrix();
+                updateUI();
+                if (shouldGenerateGameObject) {
+                    gameManager.generateGameObjects();
+                }
+                shouldGenerateGameObject = !shouldGenerateGameObject;
+            } catch (Exception e) {
+                Log.e(TAG, "Error in game loop", e);
+            }
+            int delay = speedMode.equals("slow") ? DELAY_MILLIS_SLOW : DELAY_MILLIS_FAST;
+            gameHandler.postDelayed(this, delay);
+        }
+    };
 
     private void updateUI() {
         for (int i = 0; i < gameManager.getNumRows() - 1; i++) {
@@ -190,9 +251,7 @@ public class MainActivity extends AppCompatActivity {
         updateLivesUI();
 
         if (gameManager.getLives() <= 0) {
-            Toast.makeText(this, "You lose! Start Over", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "No lives left. Resetting game.");
-//            resetGame();
+            gameOver();
         }
     }
 
@@ -203,10 +262,52 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void resetGame() {
-        gameManager.resetLives();
-        updateLivesUI();
-        gameManager.initializeGameMatrix();
-        Log.d(TAG, "Game reset. Lives: " + gameManager.getLives());
+    private void gameOver() {
+        isGameOver = true;
+        gameHandler.removeCallbacks(gameRunnable);
+        showEndGameCard(true);
+        score.setText("Final Score: " + gameManager.getScore());
     }
+
+    private void showEndGameCard(boolean isVisible) {
+        cardview_gameover.setVisibility(isVisible ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    private boolean savePlayer() {
+        if (main_player_name.length() == 0) {
+            Toast.makeText(this, "Please Add Name", Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            Player player = new Player()
+                    .setName(main_player_name.getText().toString())
+                    .setScore(gameManager.getScore())
+                    .setLat(myLocationManager.getUserLat())
+                    .setLng(myLocationManager.getUserLon());
+
+            Log.d("rrr", "MainActivity- lat: " + myLocationManager.getUserLat() + " lng: " + myLocationManager.getUserLon());
+            DataManager.getInstance().addPlayer(player);
+            DataManager.getInstance().sortByScore();
+            return true;
+        }
+    }
+
+    private Intent savePlayerListToJson() {
+        Gson gson = new Gson();
+        String playerListJson = gson.toJson(DataManager.getInstance().getPlayerList());
+        Intent intent = new Intent(this, LeaderboardActivity.class);
+        intent.putExtra("playerListJson", playerListJson);
+        return intent;
+    }
+
+    private void startLeaderboardActivity() {
+        if (savePlayer()) {
+            Intent intent = savePlayerListToJson();
+            intent.putExtra("fromMainActivity", true);  // Add this line
+            Log.d("rrr", DataManager.getInstance().toString());
+
+            startActivity(intent);
+            finish();
+        }
+    }
+
 }
