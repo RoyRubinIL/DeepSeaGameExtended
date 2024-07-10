@@ -24,17 +24,17 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/LAY_heartLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="16dp"> <!-- Add margin to create space between hearts and score -->
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/IMG_heart1"
@@ -77,30 +77,19 @@
                     android:src="@drawable/ic_heart" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <View
-                android:layout_width="116dp"
-                android:layout_height="0dp" />
-
-            <LinearLayout
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/main_score_lbl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="10dp">
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:text="000"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/main_score_lbl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:text="000"
-                    android:textAlignment="center"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-        </LinearLayout>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -108,8 +97,6 @@
             android:layout_weight="1"
             android:layoutDirection="locale"
             android:orientation="horizontal">
-
-
 
             <!-- Column 0 -->
             <androidx.appcompat.widget.LinearLayoutCompat

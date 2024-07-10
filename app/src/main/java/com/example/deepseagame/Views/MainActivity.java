@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -54,6 +56,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        );
+
         setContentView(R.layout.activity_main);
         speedMode = getIntent().getStringExtra("speed_mode");
         sensorMode = getIntent().getBooleanExtra("sensor_mode", false);
@@ -70,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize MyLocationManager and get user location
         myLocationManager = new MyLocationManager(this);
-        myLocationManager.askLocationPermissions(this);
         myLocationManager.findUserLocation(); // Ensure location is being fetched
     }
 
@@ -152,6 +164,16 @@ public class MainActivity extends AppCompatActivity {
         gameHandler.removeCallbacksAndMessages(null);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: Cleaning up resources");
+        if (sensorMode && movementDetector != null) {
+            movementDetector.stop();
+        }
+        gameHandler.removeCallbacksAndMessages(null);
+    }
+
     private void initializeViews() {
         score = findViewById(R.id.main_score);
         score_lbl = findViewById(R.id.main_score_lbl);
@@ -187,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
     private final Runnable gameRunnable = new Runnable() {
         @Override
         public void run() {
-            if(isGameOver)
+            if (isGameOver)
                 return;
             try {
                 if (gameManager.checkCollision()) {
@@ -309,5 +331,4 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-
 }

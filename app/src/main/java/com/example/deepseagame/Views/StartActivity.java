@@ -2,17 +2,16 @@ package com.example.deepseagame.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.example.deepseagame.R;
-import com.example.deepseagame.Utilities.DataManager;
-import com.example.deepseagame.Models.Player;
-import com.google.gson.Gson;
-
-import java.util.List;
+import com.example.deepseagame.Utilities.MyLocationManager;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -25,13 +24,29 @@ public class StartActivity extends AppCompatActivity {
     private final String FAST = "fast";
     private boolean sensor_mode;
 
+    private MyLocationManager myLocationManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        );
         setContentView(R.layout.activity_start);
         findViews();
         sensor_mode = false;
         setupButtons();
+
+        // Initialize MyLocationManager and request permissions
+        myLocationManager = new MyLocationManager(this);
+        myLocationManager.askLocationPermissions(this);
     }
 
     private void setupButtons() {
@@ -52,12 +67,6 @@ public class StartActivity extends AppCompatActivity {
     private void startLeaderboardActivity() {
         Intent intent = new Intent(this, LeaderboardActivity.class);
         intent.putExtra("fromMainActivity", false);  // Add this line to ensure no player data is passed
-
-        // Get the player list from DataManager and convert it to JSON
-        List<Player> playerList = DataManager.getInstance().getPlayerList();
-        String playerListJson = new Gson().toJson(playerList);
-        intent.putExtra("playerListJson", playerListJson);
-
         startActivity(intent);
         finish();
     }
