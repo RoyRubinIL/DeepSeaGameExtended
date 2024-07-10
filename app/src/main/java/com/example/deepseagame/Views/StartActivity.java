@@ -68,6 +68,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void startLeaderboardActivity() {
+        //save player to list
         Gson gson = new Gson();
         String playerListJson = gson.toJson(DataManager.getInstance().getPlayerList());
         Intent intent = new Intent(this, LeaderboardActivity.class);

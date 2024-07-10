@@ -79,7 +79,6 @@ public class LeaderboardActivity extends AppCompatActivity {
         board_list = findViewById(R.id.board_list);
         board_map = findViewById(R.id.board_map);
         return_button = findViewById(R.id.return_button);
-        // Ensure this ID matches the one in your layout file
     }
 
     private void setupReturnButton() {
