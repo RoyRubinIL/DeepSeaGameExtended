@@ -334,7 +334,6 @@ public class MainActivity extends AppCompatActivity {
     private void startLeaderboardActivity() {
         if (savePlayer()) {
             Intent intent = savePlayerListToJson();
-            intent.putExtra("fromMainActivity", true);  // Add this line
             Log.d("rrr", DataManager.getInstance().toString());
 
             startActivity(intent);
@@ -349,6 +348,4 @@ public class MainActivity extends AppCompatActivity {
     private void makeBiteSound() {
         soundPlayer.playSound(R.raw.eat);
     }
-
-
 }

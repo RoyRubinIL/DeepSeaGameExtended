@@ -23,8 +23,6 @@ import java.util.List;
 
 public class LeaderboardActivity extends AppCompatActivity {
 
-    private static final String EXTRA_FROM_MAIN_ACTIVITY = "fromMainActivity";
-
     private FrameLayout board_list;
     private FrameLayout board_map;
     private MapFragment mapFragment;
@@ -63,7 +61,6 @@ public class LeaderboardActivity extends AppCompatActivity {
         // Ensure fragments are committed before attempting to set player list
         getSupportFragmentManager().executePendingTransactions();
 
-        boolean fromMainActivity = getIntent().getBooleanExtra(EXTRA_FROM_MAIN_ACTIVITY, false);
         List<Player> playerList = getPlayerListData();
         if (playerList != null && !playerList.isEmpty()) {
             leaderboardFragment.setPlayerList(playerList);
@@ -75,14 +72,14 @@ public class LeaderboardActivity extends AppCompatActivity {
         if (playerListJson == null || playerListJson.isEmpty()) {
             return Collections.emptyList();
         }
-        List<Player> playerList = new Gson().fromJson(playerListJson, new TypeToken<List<Player>>(){}.getType());
-        return playerList;
+        return new Gson().fromJson(playerListJson, new TypeToken<List<Player>>(){}.getType());
     }
 
     private void findViews() {
         board_list = findViewById(R.id.board_list);
         board_map = findViewById(R.id.board_map);
-        return_button = findViewById(R.id.return_button); // Ensure this ID matches the one in your layout file
+        return_button = findViewById(R.id.return_button);
+        // Ensure this ID matches the one in your layout file
     }
 
     private void setupReturnButton() {

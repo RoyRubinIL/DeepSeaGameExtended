@@ -12,7 +12,9 @@ import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.example.deepseagame.R;
 import com.example.deepseagame.Utilities.BackgroundSound;
+import com.example.deepseagame.Utilities.DataManager;
 import com.example.deepseagame.Utilities.MyLocationManager;
+import com.google.gson.Gson;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -66,8 +68,10 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void startLeaderboardActivity() {
+        Gson gson = new Gson();
+        String playerListJson = gson.toJson(DataManager.getInstance().getPlayerList());
         Intent intent = new Intent(this, LeaderboardActivity.class);
-        intent.putExtra("fromMainActivity", false);  // Add this line to ensure no player data is passed
+        intent.putExtra("playerListJson", playerListJson);
         startActivity(intent);
         finish();
     }
