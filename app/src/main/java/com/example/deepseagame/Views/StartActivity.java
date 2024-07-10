@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.example.deepseagame.R;
+import com.example.deepseagame.Utilities.BackgroundSound;
 import com.example.deepseagame.Utilities.MyLocationManager;
 
 public class StartActivity extends AppCompatActivity {
@@ -81,5 +82,17 @@ public class StartActivity extends AppCompatActivity {
         fast_btn = findViewById(R.id.fast_button);
         sensor_btn = findViewById(R.id.sensor_button);
         leaderboard_btn = findViewById(R.id.scoreboard_button);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BackgroundSound.getInstance().playMusic();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        BackgroundSound.getInstance().pauseMusic();
     }
 }

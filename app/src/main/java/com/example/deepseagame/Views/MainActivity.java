@@ -20,9 +20,11 @@ import com.example.deepseagame.Interfaces.MoveCallback;
 import com.example.deepseagame.Logic.GameManager;
 import com.example.deepseagame.Models.Player;
 import com.example.deepseagame.R;
+import com.example.deepseagame.Utilities.BackgroundSound;
 import com.example.deepseagame.Utilities.DataManager;
 import com.example.deepseagame.Utilities.MoveDetector;
 import com.example.deepseagame.Utilities.MyLocationManager;
+import com.example.deepseagame.Utilities.SoundPlayer;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private MaterialTextView score;
     private MaterialTextView score_lbl;
     private AppCompatEditText main_player_name;
+    private SoundPlayer soundPlayer;
     private boolean isGameOver = false;
 
     @Override
@@ -84,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
         // Initialize MyLocationManager and get user location
         myLocationManager = new MyLocationManager(this);
         myLocationManager.findUserLocation(); // Ensure location is being fetched
+
+        soundPlayer = new SoundPlayer(this);
+
     }
 
     private void initializeButtons() {
@@ -146,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onPause: Game stopping");
         if (sensorMode)
             movementDetector.stop();
+        BackgroundSound.getInstance().pauseMusic();
     }
 
     @Override
@@ -155,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
         if (sensorMode && movementDetector != null) {
             movementDetector.start();
         }
+        BackgroundSound.getInstance().playMusic();
     }
 
     @Override
@@ -215,10 +223,12 @@ public class MainActivity extends AppCompatActivity {
                 if (gameManager.checkCollision()) {
                     Log.d(TAG, "Collision detected!");
                     onCollision();
+                    makeElectricSound();
                 }
                 if (gameManager.checkWormCollision()) {
                     gameManager.setScore(gameManager.getScore() + 10);
                     score_lbl.setText(String.valueOf(gameManager.getScore()));
+                    makeBiteSound();
                 }
                 gameManager.updateGameMatrix();
                 updateUI();
@@ -331,4 +341,14 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    private void makeElectricSound() {
+        soundPlayer.playSound(R.raw.electric);
+    }
+
+    private void makeBiteSound() {
+        soundPlayer.playSound(R.raw.eat);
+    }
+
+
 }

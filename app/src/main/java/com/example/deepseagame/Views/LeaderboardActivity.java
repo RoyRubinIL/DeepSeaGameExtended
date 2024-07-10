@@ -14,6 +14,7 @@ import com.example.deepseagame.Fragments.LeaderboardFragment;
 import com.example.deepseagame.Fragments.MapFragment;
 import com.example.deepseagame.Models.Player;
 import com.example.deepseagame.R;
+import com.example.deepseagame.Utilities.BackgroundSound;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -93,5 +94,17 @@ public class LeaderboardActivity extends AppCompatActivity {
     private void returnToStartActivity() {
         startActivity(new Intent(this, StartActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        BackgroundSound.getInstance().pauseMusic();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BackgroundSound.getInstance().playMusic();
     }
 }
