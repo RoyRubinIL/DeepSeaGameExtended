@@ -60,21 +60,4 @@ https://github.com/RoyRubinIL/DeepSeaGameExtended/assets/114292185/f02923a1-aa4b
 
 
 
----
 
-### Code Structure
-The project consists of various components including adapters, fragments, and utilities to manage the game logic, player records, and map integration.
-
-#### Adapters
-- **PlayerAdapter**: Manages the display of player records in a RecyclerView.
-
-#### Fragments
-- **LeaderboardFragment**: Displays the top scores in a RecyclerView.
-- **MapFragment**: Integrates Google Maps to display locations of top scores.
-
-#### Utilities
-- **BackgroundSound**: Manages background music.
-- **DataManager**: Handles player data storage and retrieval.
-- **MoveDetector**: Detects device tilt for tilt controls.
-- **MyLocationManager**: Manages user location services.
-- **SoundPlayer**: Plays sound effects.
