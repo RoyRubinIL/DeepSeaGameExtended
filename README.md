@@ -54,7 +54,11 @@ The extended version requires the following permissions:
 - `android.permission.INTERNET`
 
 ### Video Demo
-Check out the gameplay video: [Deep Sea Game Extended Demo](#)
+Check out the gameplay video: 
+
+https://github.com/RoyRubinIL/DeepSeaGameExtended/assets/114292185/f02923a1-aa4b-4c78-a59d-917248d1c1fa
+
+
 
 ---
 
