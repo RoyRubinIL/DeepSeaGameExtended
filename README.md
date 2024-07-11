@@ -14,6 +14,7 @@ The extended version of Deep Sea Game adds new features to enhance the gameplay 
   - Displays the top ten highest scores since the game was installed.
   - Shows a map of locations where the scores were recorded.
   - Clicking on a record updates the map location display accordingly.
+- **Speed Modes**: Two modes for speed - slow and fast.
 
 ### Installation
 1. Clone the repository:
@@ -32,6 +33,8 @@ The extended version of Deep Sea Game adds new features to enhance the gameplay 
 - **Features**:
   - Visual and tactile feedback for collisions and lives remaining.
   - Background music and sound effects enhance the gameplay experience.
+- **Speed Modes**:
+  - Select between slow and fast modes to adjust the game pace.
 
 ### Records and Map
 - **Records Table**:
